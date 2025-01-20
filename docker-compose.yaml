@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  iam-db:
+    image: postgres:15 # Replace with the version you want
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: root # Replace with your desired username
+      POSTGRES_PASSWORD: root # Replace with your desired password
+      POSTGRES_DB: cryptisecure # Replace with your desired database name
+    ports:
+      - "5432:5432" # Maps PostgreSQL default port to the host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
